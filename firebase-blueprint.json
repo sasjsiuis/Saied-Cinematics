@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "PortfolioItem": {
+      "title": "Portfolio Item",
+      "description": "A video project showcased in the cinematic gallery.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "thumbnail": { "type": "string" },
+        "youtubeUrl": { "type": "string" },
+        "duration": { "type": "string" },
+        "tools": { "type": "array", "items": { "type": "string" } },
+        "client": { "type": "string" },
+        "order": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "category", "youtubeUrl", "order"]
+    },
+    "Service": {
+      "title": "Service",
+      "description": "A service offered by the creator.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "icon": { "type": "string" },
+        "order": { "type": "number" }
+      },
+      "required": ["title", "description", "order"]
+    },
+    "Package": {
+      "title": "Package",
+      "description": "A pricing package for services.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "price": { "type": "number" },
+        "features": { "type": "array", "items": { "type": "string" } },
+        "highlighted": { "type": "boolean" },
+        "order": { "type": "number" }
+      },
+      "required": ["name", "price", "order"]
+    }
+  },
+  "firestore": {
+    "portfolio": {
+      "schema": "PortfolioItem",
+      "description": "Collection of gallery projects."
+    },
+    "services": {
+      "schema": "Service",
+      "description": "List of available services."
+    },
+    "packages": {
+      "schema": "Package",
+      "description": "Pricing tiers."
+    },
+    "settings": {
+      "schema": "object",
+      "description": "Global site configurations."
+    }
+  }
+}
